@@ -18,6 +18,6 @@ void mul_nodes(stack_t **head, unsigned int num)
 	(*head) = (*head)->next;
 	sum = (*head)->n * (*head)->prev->n;
 	(*head)->n = sum;
-	free((head)->prev);
+	free((*head)->prev);
 	(*head)->prev = NULL;
 }
