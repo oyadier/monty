@@ -78,4 +78,16 @@ void swap_nodes(stack_t **, unsigned int);
 void print_char(stack_t **, unsigned int);
 void print_str(stack_t **, unsigned int);
 void rotl(stack_t **, unsigned int);
+/*Math operations with nodes*/
+void add_nodes(stack_t **, unsigned int);
+void sub_nodes(stack_t **, unsigned int);
+void div_nodes(stack_t **, unsigned int);
+void mul_nodes(stack_t **head, unsigned int num);
+void mod_nodes(stack_t **head, unsigned int num);
+
+/*Error hanlding*/
+void err(int error_code, ...);
+void more_err(int error_code, ...);
+void string_err(int error_code, ...);
+void rotr(stack_t **stack, __attribute__((unused)) unsigned int count);
 #endif /*__MONTY__H*/
