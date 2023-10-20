@@ -7,14 +7,15 @@
  */
 void add_nodes(stack_t **stack, unsigned int line_number)
 {
-        int sum;
+	int sum;
 
-        if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
-                more_err(8, line_number, "add");
+	if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
+		/*more_err(8, line_number, "add");*/
+		printf("L%d: can't %s, stack too short\n", line_number, "add");
 
-        (*stack) = (*stack)->next;
-        sum = (*stack)->n + (*stack)->prev->n;
-        (*stack)->n = sum;
-        free((*stack)->prev);
-        (*stack)->prev = NULL;
+	(*stack) = (*stack)->next;
+	sum = (*stack)->n + (*stack)->prev->n;
+	(*stack)->n = sum;
+	free((*stack)->prev);
+	(*stack)->prev = NULL;
 }
