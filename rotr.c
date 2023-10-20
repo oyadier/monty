@@ -1,14 +1,14 @@
 #include "monty.h"
 
 /**
- * rotr - Rotates the last node of the stack to the top
+ * _rotate_lnode - Rotates the last node of the stack to the top
  * @stack: Pointer to a pointer pointing to top node of the stack
  * @count: represents the line number of the opcode
  *
  * Return: nothing
  */
 
-void rotr(stack_t **stack, __attribute__((unused))unsigned int count)
+void _rotate_lnode(stack_t **stack, __attribute__((unused))unsigned int count)
 {
 	stack_t *tmp;
 

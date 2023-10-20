@@ -1,14 +1,14 @@
 #include "monty.h"
 
 /**
- * rotl - Rotates the first node of the stack to the bottom
+ * _rotate_fnode - Rotates the first node of the stack to the bottom
  * @head: stack head
  * @count: interger that represents the line number of opcode
  *
  * Return: void
  */
 
-void rotl(stack_t **head, __attribute__((unused))unsigned int count)
+void _rotate_fnode(stack_t **head, __attribute__((unused))unsigned int count)
 {
 	stack_t *tmp;
 

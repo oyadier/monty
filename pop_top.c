@@ -1,10 +1,10 @@
 #include "monty.h"
 /**
- * pop_top - remove(pop) the top node
+ * _top_pop - remove(pop) the top node
  * @stack: Pointer to a pointer pointing to top node of the stack.
  * @line_number: Interger representing the line number of of the opcode.
  */
-void pop_top(stack_t **stack, unsigned int line_number)
+void _top_pop(stack_t **stack, unsigned int line_number)
 {
 	stack_t *tmp;
 

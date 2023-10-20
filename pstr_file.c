@@ -1,13 +1,13 @@
 #include "monty.h"
 
 /**
- * print_str - Prints a string
+ * _string_print - Prints a string
  * @head: Pointer to top node of the stack
  * @num: counts the line number of the opcode
  *
  * Return: no return
  */
-void print_str(stack_t **head, __attribute__((unused))unsigned int num)
+void _string_print(stack_t **head, __attribute__((unused))unsigned int num)
 {
 	int len;
 	stack_t *tmp;
