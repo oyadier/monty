@@ -41,11 +41,11 @@ typedef struct instruction_s
 
 extern stack_t *head;
 /*The needed operation in terms of with Math*/
-void sub_nodes(stack_t **, unsigned int);
-void div_nodes(stack_t **, unsigned int);
-void add_nodes(stack_t **, unsigned int);
-void mul_nodes(stack_t **, unsigned int);
-void mod_nodes(stack_t **, unsigned int);
+void _nodes_sub(stack_t **, unsigned int);
+void _nodes_div(stack_t **, unsigned int);
+void _node_add(stack_t **, unsigned int);
+void _nodes_mul(stack_t **, unsigned int);
+void _nodes_mul(stack_t **, unsigned int);
 /*Type for opcode functions*/
 typedef void (*op_func)(stack_t **, unsigned int);
 
@@ -56,38 +56,38 @@ int interpret_line(char *, int, int);
 void open_file(char *);
 void find_func(char *, char *, int, int);
 /*Error hanlding*/
-void err(int error_code, ...);
+/*void err(int error_code, ...);
 void more_err(int error_code, ...);
-void string_err(int error_code, ...);
-void rotr(stack_t **, unsigned int);
+void string_err(int error_code, ...);*/
+void _rotate_lnode(stack_t **, unsigned int);
 /*Stack operations*/
 void call_fun(op_func, char *, char *, int, int);
-void print_top(stack_t **, unsigned int);
-void pop_top(stack_t **, unsigned int);
+void _top_print(stack_t **, unsigned int);
+void _top_pop(stack_t **, unsigned int);
 stack_t *create_node(int n);
 void free_nodes(void);
-void nop(stack_t **, unsigned int);
+void _nop(stack_t **, unsigned int);
 
-void print_stack(stack_t **, unsigned int);
-void add_to_stack(stack_t **, unsigned int);
+void _stack_print(stack_t **, unsigned int);
+void _stk_add(stack_t **, unsigned int);
 void add_to_queue(stack_t **, unsigned int);
 
-void swap_nodes(stack_t **, unsigned int);
+void _node_swap(stack_t **, unsigned int);
 
 /*String operations*/
-void print_char(stack_t **, unsigned int);
-void print_str(stack_t **, unsigned int);
-void rotl(stack_t **, unsigned int);
+void _character_print(stack_t **, unsigned int);
+void _string_print(stack_t **, unsigned int);
+void _rotate_fnode(stack_t **, unsigned int);
 /*Math operations with nodes*/
-void add_nodes(stack_t **, unsigned int);
-void sub_nodes(stack_t **, unsigned int);
-void div_nodes(stack_t **, unsigned int);
-void mul_nodes(stack_t **head, unsigned int num);
-void mod_nodes(stack_t **head, unsigned int num);
+void _node_add(stack_t **, unsigned int);
+void _nodes_sub(stack_t **, unsigned int);
+void _nodes_div(stack_t **, unsigned int);
+void _nodes_mul(stack_t **head, unsigned int num);
+void _nodes_mod(stack_t **head, unsigned int num);
 
 /*Error hanlding*/
-void err(int error_code, ...);
+/*void err(int error_code, ...);
 void more_err(int error_code, ...);
-void string_err(int error_code, ...);
-void rotr(stack_t **stack, __attribute__((unused)) unsigned int count);
+void string_err(int error_code, ...);*/
+void _rotate_lnode(stack_t **stack, __attribute__((unused)) unsigned int count);
 #endif /*__MONTY__H*/

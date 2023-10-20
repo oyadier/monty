@@ -1,6 +1,5 @@
 #include "monty.h"
 stack_t *head = NULL;
-
 /**
  * main - Entry Point
  * @argc: Number of command line arguments.
@@ -10,8 +9,13 @@ stack_t *head = NULL;
 int main(int argc, char **argv)
 {
 	char *com = argv[1];
+
 	if (argc < 2 || argc > 2)
-		err(1);
+	{
+		printf("USAGE: monty file\n");
+		free_nodes();
+		exit(EXIT_FAILURE);
+	}
 	open_file(com);
 	free_nodes();
 	return (0);
@@ -24,10 +28,10 @@ void free_nodes(void)
 {
 	stack_t *tmp;
 
-	if (head == NULL)
+	if (!head)
 		return;
 
-	while (head != NULL)
+	while (head)
 	{
 		tmp = head;
 		head = head->next;
@@ -46,7 +50,11 @@ stack_t *create_node(int n)
 
 	node = malloc(sizeof(stack_t));
 	if (!node)
-		err(4);
+	{
+		printf("Error: malloc failed\n");
+		free_nodes();
+		exit(EXIT_FAILURE);
+	}
 	node->next = NULL;
 	node->prev = NULL;
 	node->n = n;
