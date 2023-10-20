@@ -11,14 +11,26 @@ void open_file(char *file_name)
 	FILE *fd;
 
 	if (file_name == NULL)
+	{
 		printf("Error: Can't open file %s\n", file_name);
+		free_nodes();
+		exit(EXIT_FAILURE);
+	}
 	/*Checks if the file exists*/
 	file_check = access(file_name, R_OK);
 	if (file_check == -1)
-		err(2, file_name);
+	{
+		printf("Error: Can't open file %s\n", file_name);
+		free_nodes();
+		exit(EXIT_FAILURE);
+	}
 	fd = fopen(file_name, "r");
 	if (fd == NULL)
+	{
 		printf("Error: Can't open file %s\n", file_name);
+		free_nodes();
+		exit(EXIT_FAILURE);
+	}
 
 	/*errors should be handled inside this function*/
 	read_file(fd);

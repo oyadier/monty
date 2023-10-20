@@ -15,7 +15,11 @@ int interpret_line(char *lineptr, int line_number, int format)
 	char *value;
 
 	if (!lineptr)
+	{
 		printf("Error: malloc failed\n");
+		free_nodes();
+		exit(EXIT_FAILURE);
+	}
 	delim = "\n ";
 	opcode = strtok(lineptr, delim);
 

@@ -12,7 +12,7 @@ void rotr(stack_t **stack, __attribute__((unused))unsigned int count)
 {
 	stack_t *tmp;
 
-	if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
+	if (!stack || !(*stack) || !((*stack)->next))
 		return;
 
 	tmp = *stack;

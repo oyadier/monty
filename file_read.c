@@ -17,8 +17,11 @@ void read_file(FILE *fd)
 	format = 0;
 
 	if (!fd)
+	{
 		printf("Error: Can't open file %s\n", "file_name");
-
+		free_nodes();
+		exit(EXIT_FAILURE);
+	}
 	/*Getting each line in the file*/
 	for (line_n = 1; getline(&lineprt, &n, fd) != EOF; line_n++)
 		format = interpret_line(lineprt, line_n, format);

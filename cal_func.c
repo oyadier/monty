@@ -19,18 +19,26 @@ void call_fun(op_func f, char *op, char *val, int ln, int format)
 	if (strcmp(op, "push") == 0)
 	{
 		/*Checks if the number is negative and moves the val ptr*/
-		if (val != NULL && val[0] == '-')
+		if (val  && val[0] == '-')
 		{
 			val = val + 1;
 			flag = -1;
 		}
 		/*val is not a digit is the return value is 0*/
-		if (val == NULL)
+		if (!val)
+		{
 			printf("L%d: usage: push integer\n", ln);
+			free_nodes();
+			exit(EXIT_FAILURE);
+		}
 		for (i = 0; val[i] != '\0'; i++)
 		{
 			if (isdigit(val[i]) == 0)
+			{
 				printf("L%d: usage: push integer\n", ln);
+				free_nodes();
+				exit(EXIT_FAILURE);
+			}
 		}
 		node = create_node(atoi(val) * flag);
 		if (format == 0)
