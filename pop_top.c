@@ -9,7 +9,11 @@ void pop_top(stack_t **stack, unsigned int line_number)
 	stack_t *tmp;
 
 	if (stack == NULL || *stack == NULL)
-		more_err(7, line_number);
+	{
+		printf("L%d: can't pop an empty stack\n", line_number);
+		free_nodes();
+		exit(EXIT_FAILURE);
+	}
 
 	tmp = *stack;
 	*stack = tmp->next;

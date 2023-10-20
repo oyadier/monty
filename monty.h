@@ -56,9 +56,9 @@ int interpret_line(char *, int, int);
 void open_file(char *);
 void find_func(char *, char *, int, int);
 /*Error hanlding*/
-void err(int error_code, ...);
+/*void err(int error_code, ...);
 void more_err(int error_code, ...);
-void string_err(int error_code, ...);
+void string_err(int error_code, ...);*/
 void rotr(stack_t **, unsigned int);
 /*Stack operations*/
 void call_fun(op_func, char *, char *, int, int);
