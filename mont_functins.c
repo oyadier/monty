@@ -14,21 +14,21 @@ void find_func(char *opcode, char *value, int ln, int format)
 	int flag;
 
 	instruction_t func_list[] = {
-		{"push", add_to_stack},
-		{"pall", print_stack},
-		{"pint", print_top},
-		{"pop", pop_top},
-		{"nop", nop},
-		{"swap", swap_nodes},
-		{"add", add_nodes},
-		{"sub", sub_nodes},
-		{"div", div_nodes},
-		{"mul", mul_nodes},
-		{"mod", mod_nodes},
-		{"pchar", print_char},
-		{"pstr", print_str},
-		{"rotl", rotl},
-		{"rotr", rotr},
+		{"push", _stk_add},
+		{"pall", _stack_print},
+		{"pint", _top_print},
+		{"pop", _top_pop},
+		{"_nop", _nop},
+		{"swap", _node_swap},
+		{"add", _node_add},
+		{"sub", _nodes_sub},
+		{"div", _nodes_div},
+		{"mul", _nodes_mul},
+		{"mod", _nodes_mod},
+		{"pchar", _character_print},
+		{"pstr", _string_print},
+		{"_rotate_fnode", _rotate_fnode},
+		{"_rotate_lnode", _rotate_lnode},
 		{NULL, NULL}
 	};
 
@@ -45,5 +45,9 @@ void find_func(char *opcode, char *value, int ln, int format)
 		}
 	}
 	if (flag == 1)
-		err(3, ln, opcode);
+	{
+		printf("L%d: unknown instruction %s\n", ln, opcode);
+		free_nodes();
+		exit(EXIT_FAILURE);
+	}
 }

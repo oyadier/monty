@@ -1,11 +1,11 @@
 #include "monty.h"
 
 /**
- * print_stack - print node  to the stack.
+ * _stack_print - print node  to the stack.
  * @stack: Pointer to a pointer pointing to top node of the stack.
  * @line_number: Interger representing the line number of of the opcode.
  */
-void print_stack(stack_t **stack, unsigned int line_number)
+void _stack_print(stack_t **stack, unsigned int line_number)
 {
 	stack_t *tmp;
 
