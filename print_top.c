@@ -8,9 +8,9 @@
  * Return: No return
  */
 
-void print_top(stack_t **head, unsigned int count)
+void print_top(stack_t **stack, unsigned int line_number)
 {
-	if (head == NULL || *head == NULL)
-		more_err(6, count);
-	printf("%d\n", (*head)->n);
+	if (stack == NULL || *stack == NULL)
+		more_err(6, line_number);
+	printf("%d\n", (*stack)->n);
 }

@@ -6,16 +6,14 @@
  */
 void sub_nodes(stack_t **stack, unsigned int line_number)
 {
-        int sum;
+	int sum;
 
-        if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
+	if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
+		more_err(8, line_number, "sub");
 
-                more_err(8, line_number, "sub");
-
-
-        (*stack) = (*stack)->next;
-        sum = (*stack)->n - (*stack)->prev->n;
-        (*stack)->n = sum;
-        free((*stack)->prev);
-        (*stack)->prev = NULL;
+	(*stack) = (*stack)->next;
+	sum = (*stack)->n - (*stack)->prev->n;
+	(*stack)->n = sum;
+	free((*stack)->prev);
+	(*stack)->prev = NULL;
 }
