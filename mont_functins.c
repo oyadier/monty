@@ -1,17 +1,18 @@
 #include "monty.h"
 
 /**
- * find_func - Finds the appropite function to run the opcode instructions.
- * @opcode: The operation code, It could be push, pall, ...
- * @value: The possible value for the operation.
- * @ln: Line number for the opcode.
- * @format: Format specifier. If 0 Nodes will be entered as a stack.
- * if 1 nodes will be entered as a queue.
+ * find_func - this function finds the appropite function
+ * to run the opcode instructions
+ * @opcode: the operation code
+ * @value: possible value for the operation
+ * @ln: line number for the opcode
+ * @format: Format specifier
+ * Return: void
  */
 void find_func(char *opcode, char *value, int ln, int format)
 {
-	int i;
-	int flag;
+	int k;
+	int tmp;
 
 	instruction_t func_list[] = {
 		{"push", _stk_add},
@@ -34,17 +35,16 @@ void find_func(char *opcode, char *value, int ln, int format)
 
 	if (opcode[0] == '#')
 		return;
-	/*Iterates through list to find the right function*/
-	for (flag = 1, i = 0; func_list[i].opcode != NULL; i++)
+
+	for (tmp = 1, k = 0; func_list[k].opcode != NULL; k++)
 	{
-		/*When 0 found the right opcode*/
-		if (strcmp(opcode, func_list[i].opcode) == 0)
+		if (strcmp(opcode, func_list[k].opcode) == 0)
 		{
-			call_fun(func_list[i].f, opcode, value, ln, format);
-			flag = 0;
+			call_fun(func_list[k].f, opcode, value, ln, format);
+			tmp = 0;
 		}
 	}
-	if (flag == 1)
+	if (tmp == 1)
 	{
 		printf("L%d: unknown instruction %s\n", ln, opcode);
 		free_nodes();
