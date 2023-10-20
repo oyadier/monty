@@ -22,7 +22,6 @@ void read_file(FILE *fd)
 		free_nodes();
 		exit(EXIT_FAILURE);
 	}
-
 	/*Getting each line in the file*/
 	for (line_n = 1; getline(&lineprt, &n, fd) != EOF; line_n++)
 		format = interpret_line(lineprt, line_n, format);

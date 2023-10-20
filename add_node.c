@@ -16,7 +16,6 @@ void add_nodes(stack_t **stack, unsigned int line_number)
 		free_nodes();
 		exit(EXIT_FAILURE);
 	}
-
 	(*stack) = (*stack)->next;
 	sum = (*stack)->n + (*stack)->prev->n;
 	(*stack)->n = sum;
