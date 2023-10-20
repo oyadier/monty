@@ -19,4 +19,5 @@ void div_nodes(stack_t **stack, unsigned int line_number)
 	(*stack)->n = sum;
 	free((*stack)->prev);
 	(*stack)->prev = NULL;
+
 }
