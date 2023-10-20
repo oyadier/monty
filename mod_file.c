@@ -13,10 +13,18 @@ void mod_nodes(stack_t **head, unsigned int num)
 	int j;
 
 	if (head == NULL || head == NULL || (*head)->next == NULL)
-		more_err(8, num, "mod");
+	{
+		printf("L%d: can't %s, stack too short\n", num, "mod");
+		free_nodes();
+		exit(EXIT_FAILURE);
+	}
 
 	if ((*head)->n == 0)
-		more_err(9, num);
+	{
+		printf("L%d: division by zero\n", num);
+		free_nodes();
+		exit(EXIT_FAILURE);
+	}
 	(*head) = (*head)->next;
 	j = (*head)->n % (*head)->prev->n;
 	(*head)->n = j;

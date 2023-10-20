@@ -8,8 +8,12 @@ void sub_nodes(stack_t **stack, unsigned int line_number)
 {
 	int sum;
 
-	if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
-		more_err(8, line_number, "sub");
+	if (!stack || !(*stack) || !((*stack)->next))
+	{
+		printf("L%d: can't %s, stack too short\n", line_number, "sub");
+		free_nodes();
+		exit(EXIT_FAILURE);
+	}
 
 	(*stack) = (*stack)->next;
 	sum = (*stack)->n - (*stack)->prev->n;

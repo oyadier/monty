@@ -11,10 +11,10 @@ void print_char(stack_t **head, unsigned int count)
 	int num;
 
 	if (head == NULL || *head == NULL)
-		string_err(11, count);
+		printf("L%d: can't pchar, stack empty\n", count);
 
 	num = (*head)->n;
 	if (num < 0 || num > 127)
-		string_err(10, count);
+		printf("L%d: can't pchar, value out of range\n", count);
 	printf("%c\n", num);
 }

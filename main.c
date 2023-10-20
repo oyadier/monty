@@ -11,7 +11,11 @@ int main(int argc, char **argv)
 	char *com = argv[1];
 
 	if (argc < 2 || argc > 2)
+	{
 		printf("USAGE: monty file\n");
+		free_nodes();
+		exit(EXIT_FAILURE);
+	}
 	open_file(com);
 	free_nodes();
 	return (0);
@@ -46,7 +50,11 @@ stack_t *create_node(int n)
 
 	node = malloc(sizeof(stack_t));
 	if (!node)
+	{
 		printf("Error: malloc failed\n");
+		free_nodes();
+		exit(EXIT_FAILURE);
+	}
 	node->next = NULL;
 	node->prev = NULL;
 	node->n = n;
