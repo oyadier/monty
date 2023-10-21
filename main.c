@@ -1,14 +1,17 @@
 #include "monty.h"
 stack_t *head = NULL;
+
 /**
- * main - Entry Point
- * @argc: Number of command line arguments.
- * @argv: An array containing the arguments.
- * Return: Always Zero.
+ * main - entry Point of the program
+ * @argc: number of command line arguments
+ * @argv: array containing the command line arguments
+ *
+ * Return: Always Zero
  */
+
 int main(int argc, char **argv)
 {
-	char *com = argv[1];
+	char *val = argv[1];
 
 	if (argc < 2 || argc > 2)
 	{
@@ -16,47 +19,51 @@ int main(int argc, char **argv)
 		free_nodes();
 		exit(EXIT_FAILURE);
 	}
-	open_file(com);
+	open_file(val);
 	free_nodes();
 	return (0);
 }
 
 /**
- * free_nodes - Frees nodes in the stack.
+ * free_nodes - Frees nodes in the stack
+ *
+ * Return: nothing
  */
 void free_nodes(void)
 {
-	stack_t *tmp;
+	stack_t *str;
 
 	if (!head)
 		return;
 
 	while (head)
 	{
-		tmp = head;
+		str = head;
 		head = head->next;
-		free(tmp);
+		free(str);
 	}
 }
 
 /**
- * create_node - Creates and populates a node.
- * @n: Number to go inside the node.
- * Return: Upon sucess a pointer to the node. Otherwise NULL.
+ * create_node - Creates anddistributes nodes
+ * @vex: number in a node
+ *
+ * Return: on sucess, a pointer to the node otherwise NULL
  */
-stack_t *create_node(int n)
-{
-	stack_t *node;
 
-	node = malloc(sizeof(stack_t));
-	if (!node)
+stack_t *create_node(int vex)
+{
+	stack_t *s_node;
+
+	s_node = malloc(sizeof(stack_t));
+	if (!s_node)
 	{
 		printf("Error: malloc failed\n");
 		free_nodes();
 		exit(EXIT_FAILURE);
 	}
-	node->next = NULL;
-	node->prev = NULL;
-	node->n = n;
-	return (node);
+	s_node->next = NULL;
+	s_node->prev = NULL;
+	s_node->n = vex;
+	return (s_node);
 }
