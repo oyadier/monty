@@ -1,8 +1,10 @@
 #include "monty.h"
 
 /**
- * open_file - Opens a file.
- * @file_name: String with the name of the file.
+ * open_file - Opens a file
+ * @file_name: String with the name of the file
+ *
+ * Return: void
  */
 
 void open_file(char *file_name)
@@ -16,7 +18,6 @@ void open_file(char *file_name)
 		free_nodes();
 		exit(EXIT_FAILURE);
 	}
-	/*Checks if the file exists*/
 	file_check = access(file_name, R_OK);
 	if (file_check == -1)
 	{
@@ -31,9 +32,6 @@ void open_file(char *file_name)
 		free_nodes();
 		exit(EXIT_FAILURE);
 	}
-
-	/*errors should be handled inside this function*/
 	read_file(fd);
-	/*might need to check for errors on closing a file.*/
 	fclose(fd);
 }
