@@ -4,12 +4,12 @@
  * find_func - this function finds the appropite function
  * to run the opcode instructions
  * @opcode: the operation code
- * @value: possible value for the operation
- * @ln: line number for the opcode
+ * @res: possible value for the operation
+ * @count: line number for the opcode
  * @format: Format specifier
  * Return: void
  */
-void find_func(char *opcode, char *value, int ln, int format)
+void find_func(char *opcode, char *res, int count, int format)
 {
 	int k;
 	int tmp;
@@ -40,13 +40,13 @@ void find_func(char *opcode, char *value, int ln, int format)
 	{
 		if (strcmp(opcode, func_list[k].opcode) == 0)
 		{
-			call_fun(func_list[k].f, opcode, value, ln, format);
+			call_fun(func_list[k].f, opcode, res, count, format);
 			tmp = 0;
 		}
 	}
 	if (tmp == 1)
 	{
-		printf("L%d: unknown instruction %s\n", ln, opcode);
+		printf("L%d: unknown instruction %s\n", count, opcode);
 		free_nodes();
 		exit(EXIT_FAILURE);
 	}
