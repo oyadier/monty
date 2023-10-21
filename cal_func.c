@@ -1,33 +1,31 @@
 #include "monty.h"
 
 /**
- * call_fun - Calls the required function.
- * @f: Pointer to the function that is about to be called.
- * @op: string representing the opcode.
- * @val: string representing a numeric value.
- * @ln: line numeber for the instruction.
- * @format: Format specifier. If 0 Nodes will be entered as a stack.
- * if 1 nodes will be entered as a queue.
+ * call_fun - Calls the required function
+ * @f: Pointer to the function
+ * @str: opcode string
+ * @val: string representing a numeric value
+ * @num: line numeber for the instruction
+ * @format: Format specifier
+ * Return: void
  */
-void call_fun(op_func f, char *op, char *val, int ln, int format)
+void call_fun(op_func f, char *str, char *val, int num, int format)
 {
 	stack_t *node;
-	int flag;
+	int tmp;
 	int i;
 
-	flag = 1;
-	if (strcmp(op, "push") == 0)
+	tmp = 1;
+	if (strcmp(str, "push") == 0)
 	{
-		/*Checks if the number is negative and moves the val ptr*/
 		if (val  && val[0] == '-')
 		{
 			val = val + 1;
-			flag = -1;
+			tmp = -1;
 		}
-		/*val is not a digit is the return value is 0*/
 		if (!val)
 		{
-			printf("L%d: usage: push integer\n", ln);
+			printf("L%d: usage: push integer\n", num);
 			free_nodes();
 			exit(EXIT_FAILURE);
 		}
@@ -35,17 +33,17 @@ void call_fun(op_func f, char *op, char *val, int ln, int format)
 		{
 			if (isdigit(val[i]) == 0)
 			{
-				printf("L%d: usage: push integer\n", ln);
+				printf("L%d: usage: push integer\n", num);
 				free_nodes();
 				exit(EXIT_FAILURE);
 			}
 		}
-		node = create_node(atoi(val) * flag);
+		node = create_node(atoi(val) * tmp);
 		if (format == 0)
-			f(&node, ln);
+			f(&node, num);
 		if (format == 1)
-			add_to_queue(&node, ln);
+			add_to_queue(&node, num);
 	}
 	else
-		f(&head, ln);
+		f(&head, num);
 }
