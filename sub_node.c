@@ -1,6 +1,7 @@
 #include "monty.h"
+
 /**
- * _nodes_sub -subtraction
+ * _nodes_sub - subtraction
  * @stack: stack head
  * @line_number: represents the line number of the opcode
  *
