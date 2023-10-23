@@ -11,7 +11,7 @@ void _node_add(stack_t **stack, unsigned int line_number)
 
 	if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
 	{
-		/*more_err(8, line_number, "add");*/
+
 		printf("L%d: can't %s, stack too short\n", line_number, "add");
 		free_nodes();
 		exit(EXIT_FAILURE);

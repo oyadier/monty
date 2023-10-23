@@ -13,9 +13,10 @@ void _nodes_div(stack_t **head, unsigned int count)
 {
 	 int j;
 
-	if (!head || !(*head) || !((*head)->next))
+	if (!stack || *stack == NULL || (*stack)->next == NULL)
 	{
-		printf("L%d: can't %s, stack too short\n", count, "div");
+		printf("L%d: can't %s, stack too short\n", line_number, "div");
+
 		free_nodes();
 		exit(EXIT_FAILURE);
 	}
