@@ -56,9 +56,9 @@ int interpret_line(char *, int, int);
 void open_file(char *);
 void find_func(char *, char *, int, int);
 /*Error hanlding*/
-/*void err(int error_code, ...);
-void more_err(int error_code, ...);
-void string_err(int error_code, ...);*/
+/*void err(int error_code, ...);*/
+/*void more_err(int error_code, ...);*/
+/*void string_err(int error_code, ...);*/
 void _rotate_lnode(stack_t **, unsigned int);
 /*Stack operations*/
 void call_fun(op_func, char *, char *, int, int);
@@ -68,7 +68,8 @@ stack_t *create_node(int n);
 void free_nodes(void);
 void _nop(stack_t **, unsigned int);
 
-void _stack_print(stack_t **, unsigned int);
+/*void _stack_print(stack_t **stac, unsigned int);*/
+void _stack_print(stack_t **stack, __attribute__((unused)) unsigned int count);
 void _stk_add(stack_t **, unsigned int);
 void add_to_queue(stack_t **, unsigned int);
 
@@ -86,8 +87,9 @@ void _nodes_mul(stack_t **head, unsigned int num);
 void _nodes_mod(stack_t **head, unsigned int num);
 
 /*Error hanlding*/
-/*void err(int error_code, ...);
-void more_err(int error_code, ...);
-void string_err(int error_code, ...);*/
-void _rotate_lnode(stack_t **stack, __attribute__((unused)) unsigned int count);
+/*void err(int error_code, ...);*/
+/*void more_err(int error_code, ...);*/
+/*void string_err(int error_code, ...);*/
+void _rotate_lnode(stack_t **stack, __attribute__((unused))unsigned int count);
+
 #endif /*__MONTY__H*/

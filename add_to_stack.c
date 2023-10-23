@@ -1,11 +1,14 @@
 #include "monty.h"
 
 /**
- * _stk_add - Adds a node to the stack.
- * @new_node: Pointer to the new node.
- * @ln: Interger representing the line number of of the opcode.
+ * _stk_add - adds a node to the stack
+ * @new_node: new node
+ * @j: ine number
+ *
+ * Return: nothing
  */
-void _stk_add(stack_t **new_node, __attribute__((unused))unsigned int ln)
+
+void _stk_add(stack_t **new_node, __attribute__((unused))unsigned int j)
 {
 	stack_t *tmp;
 

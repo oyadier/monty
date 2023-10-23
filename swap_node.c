@@ -1,10 +1,12 @@
 #include "monty.h"
+
 /**
- * _node_swap - Swaps the top two elements of the stack.
- * @stack: Pointer to a pointer pointing to top node of the stack.
- * @line_number: Interger representing the line number of of the opcode.
+ * _node_swap - Swaps the top two elements of the stack
+ * @head: pointer pointing to top node of the stack
+ * @num: line number of the opcode
  */
-void _node_swap(stack_t **stack, unsigned int line_number)
+
+void _node_swap(stack_t **head, unsigned int num)
 {
 	stack_t *tmp;
 
@@ -14,12 +16,12 @@ void _node_swap(stack_t **stack, unsigned int line_number)
 		free_nodes();
 		exit(EXIT_FAILURE);
 	}
-	tmp = (*stack)->next;
-	(*stack)->next = tmp->next;
+	tmp = (*head)->next;
+	(*head)->next = tmp->next;
 	if (tmp->next != NULL)
-		tmp->next->prev = *stack;
-	tmp->next = *stack;
-	(*stack)->prev = tmp;
+		tmp->next->prev = *head;
+	tmp->next = *head;
+	(*head)->prev = tmp;
 	tmp->prev = NULL;
-	*stack = tmp;
+	*head = tmp;
 }

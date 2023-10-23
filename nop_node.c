@@ -2,11 +2,11 @@
 
 /**
  * _nop - Does nothing.
- * @stack: Pointer to a pointer pointing to top node of the stack.
- * @line_number: Interger representing the line number of of the opcode.
+ * @head: stack head
+ * @line_number: represents the line number of the opcode
  */
-void _nop(stack_t **stack, unsigned int line_number)
+void _nop(stack_t **head, unsigned int line_number)
 {
-	(void)stack;
+	(void)head;
 	(void)line_number;
 }

@@ -1,31 +1,37 @@
 #include "monty.h"
+
 /**
- * _nodes_div - Adds the top two elements of the stack.
- * @stack: Pointer to a pointer pointing to top node of the stack.
- * @line_number: Interger representing the line number of of the opcode.
+ * _nodes_div - divides the second top element of the
+ * stack by the top element of the stack
+ * @head: stack head
+ * @count: counts line numbers of the opcode
+ *
+ * Return: nothing
  */
-void _nodes_div(stack_t **stack, unsigned int line_number)
+
+void _nodes_div(stack_t **head, unsigned int count)
 {
-	 int sum;
+	 int j;
 
 	if (!stack || *stack == NULL || (*stack)->next == NULL)
 	{
 		printf("L%d: can't %s, stack too short\n", line_number, "div");
+
 		free_nodes();
 		exit(EXIT_FAILURE);
 	}
 
-	if ((*stack)->n == 0)
+	if ((*head)->n == 0)
 	{
-		printf("L%d: division by zero\n", line_number);
+		printf("L%d: division by zero\n", count);
 		free_nodes();
 		exit(EXIT_FAILURE);
 	}
 
-	(*stack) = (*stack)->next;
-	sum = (*stack)->n / (*stack)->prev->n;
-	(*stack)->n = sum;
-	free((*stack)->prev);
-	(*stack)->prev = NULL;
+	(*head) = (*head)->next;
+	j = (*head)->n / (*head)->prev->n;
+	(*head)->n = j;
+	free((*head)->prev);
+	(*head)->prev = NULL;
 
 }
