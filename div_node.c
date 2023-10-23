@@ -8,9 +8,8 @@ void _nodes_div(stack_t **stack, unsigned int line_number)
 {
 	 int sum;
 
-	if (!stack || !(*stack) || !((*stack)->next))
+	if (!stack || *stack == NULL || (*stack)->next == NULL)
 	{
-		/*8*/
 		printf("L%d: can't %s, stack too short\n", line_number, "div");
 		free_nodes();
 		exit(EXIT_FAILURE);
