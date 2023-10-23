@@ -10,9 +10,9 @@ void _node_swap(stack_t **head, unsigned int num)
 {
 	stack_t *tmp;
 
-	if (!stack || *stack == NULL || (*stack)->next == NULL)
+	if (!head || *head == NULL || (*head)->next == NULL)
 	{
-		printf("L%d: can't swap, stack too short\n", line_number);
+		printf("L%d: can't swap, stack too short\n", num);
 		free_nodes();
 		exit(EXIT_FAILURE);
 	}

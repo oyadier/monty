@@ -4,16 +4,16 @@
  * _nodes_div - divides the second top element of the
  * stack by the top element of the stack
  * @head: stack head
- * @count: counts line numbers of the opcode
+ * @line_number: counts line numbers of the opcode
  *
  * Return: nothing
  */
 
-void _nodes_div(stack_t **head, unsigned int count)
+void _nodes_div(stack_t **head, unsigned int line_number)
 {
 	 int j;
 
-	if (!stack || *stack == NULL || (*stack)->next == NULL)
+	if (!head || *head == NULL || (*head)->next == NULL)
 	{
 		printf("L%d: can't %s, stack too short\n", line_number, "div");
 
@@ -23,7 +23,7 @@ void _nodes_div(stack_t **head, unsigned int count)
 
 	if ((*head)->n == 0)
 	{
-		printf("L%d: division by zero\n", count);
+		printf("L%d: division by zero\n", line_number);
 		free_nodes();
 		exit(EXIT_FAILURE);
 	}
