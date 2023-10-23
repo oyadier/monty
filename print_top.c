@@ -16,6 +16,5 @@ void _top_print(stack_t **stack, unsigned int line_number)
 		free_nodes();
 		exit(EXIT_FAILURE);
 	}
-  
 	printf("%d\n", (*stack)->n);
 }

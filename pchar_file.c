@@ -10,7 +10,7 @@ void _character_print(stack_t **head, unsigned int count)
 {
 	int num;
 
-	if (!head|| !(*head))
+	if (!head || !(*head))
 	{
 		printf("L%d: can't pchar, stack empty\n", count);
 		free_nodes();
